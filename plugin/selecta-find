@@ -1,8 +1,4 @@
 #!/bin/sh
 
-
-# findrepo hi | selecta | awk -F':' '{print $1}'
-
-# findrepo $1 | selecta | awk -F':' '{print $1}'
-
-./findrepo $1 | ./selecta | sed -n -e 's/\(^.*[0-9][0-9]*\):.*$/\1/p'
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+$DIR/./findrepo $1 | $DIR/./selecta | sed -n -e 's/\(^.*[0-9][0-9]*\):.*$/\1/p'
